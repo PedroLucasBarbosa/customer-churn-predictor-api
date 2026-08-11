@@ -1,0 +1,43 @@
+{
+  "model_type": "random_forest",
+  "version": "1.0.0",
+  "trained_at": "2026-08-11T02:32:03.324238+00:00",
+  "metrics": {
+    "accuracy": 0.771,
+    "f1_score": 0.5918,
+    "roc_auc": 0.8123
+  },
+  "all_candidates": {
+    "logistic_regression": {
+      "accuracy": 0.732,
+      "f1_score": 0.589,
+      "roc_auc": 0.8116
+    },
+    "random_forest": {
+      "accuracy": 0.771,
+      "f1_score": 0.5918,
+      "roc_auc": 0.8123
+    }
+  },
+  "features": [
+    "tenure",
+    "MonthlyCharges",
+    "TotalCharges",
+    "SeniorCitizen",
+    "gender",
+    "Partner",
+    "Dependents",
+    "PhoneService",
+    "MultipleLines",
+    "InternetService",
+    "OnlineSecurity",
+    "OnlineBackup",
+    "DeviceProtection",
+    "TechSupport",
+    "StreamingTV",
+    "StreamingMovies",
+    "Contract",
+    "PaperlessBilling",
+    "PaymentMethod"
+  ]
+}
