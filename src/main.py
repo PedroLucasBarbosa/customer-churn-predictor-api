@@ -40,7 +40,8 @@ async def lifespan(app: FastAPI):
         ml_artifacts["metadata"] = json.load(f)
     logger.info("Model loaded: %s", ml_artifacts["metadata"]["model_type"])
     yield
-    ml_artifacts.clear()
+    ml_artifacts["model"] = None
+    ml_artifacts["metadata"] = None
 
 
 app = FastAPI(
@@ -61,16 +62,17 @@ def _risk_level(probability: float) -> str:
 
 @app.get("/health", response_model=HealthResponse, tags=["Monitoring"])
 def health():
+    metadata = ml_artifacts.get("metadata")
     return HealthResponse(
         status="ok",
-        model_loaded=ml_artifacts["model"] is not None,
-        model_version=ml_artifacts["metadata"]["version"] if ml_artifacts["metadata"] else "unknown",
+        model_loaded=ml_artifacts.get("model") is not None,
+        model_version=metadata["version"] if metadata else "unknown",
     )
 
 
 @app.get("/model-info", response_model=ModelInfoResponse, tags=["Monitoring"])
 def model_info():
-    metadata = ml_artifacts["metadata"]
+    metadata = ml_artifacts.get("metadata")
     if metadata is None:
         raise HTTPException(status_code=503, detail="Model metadata not loaded")
     return ModelInfoResponse(**metadata)
@@ -78,7 +80,7 @@ def model_info():
 
 @app.post("/predict", response_model=PredictionResponse, tags=["Prediction"])
 def predict(customer: CustomerData):
-    model = ml_artifacts["model"]
+    model = ml_artifacts.get("model")
     if model is None:
         raise HTTPException(status_code=503, detail="Model not loaded")
 
