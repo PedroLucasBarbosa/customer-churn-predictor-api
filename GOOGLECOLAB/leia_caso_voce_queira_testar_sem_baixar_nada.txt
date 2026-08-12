@@ -1,0 +1,48 @@
+====================================
+COMO USAR O GOOGLE COLAB (BÁSICO)
+====================================
+
+O que é:
+O Google Colab é um site gratuito do Google onde é possível rodar código
+Python direto no navegador, sem precisar instalar nada no computador.
+
+Link de acesso:
+https://colab.research.google.com/
+
+
+COMO ABRIR UM NOTEBOOK (.ipynb):
+1. Acesse o link acima
+2. Clique em "Arquivo" > "Fazer upload de notebook"
+3. Selecione o arquivo .ipynb que você recebeu
+4. O notebook vai abrir com o código já dividido em blocos (células)
+
+
+COMO RODAR UMA CÉLULA:
+- Clique na célula desejada
+- Aperte o botão de "play" (triângulo) do lado esquerdo dela
+  OU
+- Aperte Shift + Enter no teclado
+
+É necessário rodar as células NA ORDEM (de cima para baixo), pois cada
+uma pode depender do que rodou antes.
+
+
+COMO SABER SE UMA CÉLULA TERMINOU DE RODAR:
+- Enquanto está rodando, aparece um ícone de carregando (bolinha/relógio)
+- Quando termina, aparece um número entre colchetes, tipo [1], [2]...
+- O resultado (texto, erro, etc.) aparece logo abaixo da célula
+
+
+SE DER ALGUM ERRO:
+- O erro aparece em vermelho, abaixo da célula que falhou
+- Geralmente dá pra resolver rodando as células anteriores novamente,
+  na ordem certa, de cima para baixo
+- Se persistir, copie a mensagem de erro completa e envie para quem
+  puder ajudar
+
+
+DICA - REINICIAR DO ZERO:
+Se algo parecer "travado" ou bugado, vá em:
+"Ambiente de execução" > "Reiniciar sessão"
+Depois disso, é necessário rodar todas as células de novo desde a
+primeira.
